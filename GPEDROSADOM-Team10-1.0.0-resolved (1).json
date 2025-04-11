@@ -1,0 +1,1131 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Medical System API",
+    "description": "API basada en el diagrama de entidades (User, Obra Social, Appointment, etc.)",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://virtserver.swaggerhub.com/GPEDROSADOM/Team10/1.0.0",
+      "description": "SwaggerHub API Auto Mocking"
+    },
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "tags": [
+    {
+      "name": "users",
+      "description": "Endpoints relacionados con usuarios"
+    },
+    {
+      "name": "obraSocial",
+      "description": "Endpoints relacionados con el maestro de obras sociales"
+    },
+    {
+      "name": "affiliations",
+      "description": "Endpoints relacionados con afiliaciones (número de credencial, id de obra y usuario)"
+    },
+    {
+      "name": "professionals",
+      "description": "Endpoints relacionados con profesionales"
+    },
+    {
+      "name": "appointments",
+      "description": "Endpoints relacionados con citas médicas"
+    },
+    {
+      "name": "medicalExams",
+      "description": "Endpoints relacionados con exámenes médicos"
+    }
+  ],
+  "paths": {
+    "/users": {
+      "get": {
+        "tags": [
+          "users"
+        ],
+        "summary": "Obtiene la lista de usuarios",
+        "operationId": "getUsers",
+        "responses": {
+          "200": {
+            "description": "Lista de usuarios"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "users"
+        ],
+        "summary": "Crea un nuevo usuario",
+        "operationId": "createUser",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Usuario creado"
+          }
+        }
+      }
+    },
+    "/users/{userId}": {
+      "get": {
+        "tags": [
+          "users"
+        ],
+        "summary": "Obtiene un usuario por ID",
+        "operationId": "getUserById",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Usuario encontrado"
+          },
+          "404": {
+            "description": "Usuario no encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "users"
+        ],
+        "summary": "Actualiza todos los datos de un usuario",
+        "operationId": "updateUser",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Usuario actualizado"
+          },
+          "404": {
+            "description": "Usuario no encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "users"
+        ],
+        "summary": "Elimina un usuario",
+        "operationId": "deleteUser",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Usuario eliminado"
+          },
+          "404": {
+            "description": "Usuario no encontrado"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "users"
+        ],
+        "summary": "Actualiza parcialmente un usuario",
+        "operationId": "patchUser",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserPatch"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Usuario actualizado parcialmente"
+          },
+          "404": {
+            "description": "Usuario no encontrado"
+          }
+        }
+      }
+    },
+    "/users/login": {
+      "post": {
+        "tags": [
+          "users"
+        ],
+        "summary": "Inicia sesión de usuario",
+        "operationId": "loginUser",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/users_login_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Sesión iniciada"
+          },
+          "401": {
+            "description": "Credenciales inválidas"
+          }
+        }
+      }
+    },
+    "/obraSocial": {
+      "get": {
+        "tags": [
+          "obraSocial"
+        ],
+        "summary": "Obtiene todas las obras sociales (maestro)",
+        "operationId": "getObraSociales",
+        "responses": {
+          "200": {
+            "description": "Lista de obras sociales"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "obraSocial"
+        ],
+        "summary": "Crea una nueva obra social",
+        "operationId": "createObraSocial",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ObraSocialCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Obra social creada"
+          }
+        }
+      }
+    },
+    "/obraSocial/{obraSocialId}": {
+      "get": {
+        "tags": [
+          "obraSocial"
+        ],
+        "summary": "Obtiene una obra social por ID",
+        "operationId": "getObraSocialById",
+        "parameters": [
+          {
+            "name": "obraSocialId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Obra social encontrada"
+          },
+          "404": {
+            "description": "No se encontró la obra social"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "obraSocial"
+        ],
+        "summary": "Actualiza una obra social",
+        "operationId": "updateObraSocial",
+        "parameters": [
+          {
+            "name": "obraSocialId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ObraSocialCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Obra social actualizada"
+          },
+          "404": {
+            "description": "No se encontró la obra social"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "obraSocial"
+        ],
+        "summary": "Elimina una obra social",
+        "operationId": "deleteObraSocial",
+        "parameters": [
+          {
+            "name": "obraSocialId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Obra social eliminada"
+          },
+          "404": {
+            "description": "No se encontró la obra social"
+          }
+        }
+      }
+    },
+    "/affiliations": {
+      "get": {
+        "tags": [
+          "affiliations"
+        ],
+        "summary": "Obtiene todas las afiliaciones",
+        "operationId": "getAffiliations",
+        "responses": {
+          "200": {
+            "description": "Lista de afiliaciones"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "affiliations"
+        ],
+        "summary": "Crea una nueva afiliación",
+        "operationId": "createAffiliation",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AffiliationCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Afiliación creada"
+          }
+        }
+      }
+    },
+    "/affiliations/{affiliationId}": {
+      "get": {
+        "tags": [
+          "affiliations"
+        ],
+        "summary": "Obtiene una afiliación por ID",
+        "operationId": "getAffiliationById",
+        "parameters": [
+          {
+            "name": "affiliationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Afiliación encontrada"
+          },
+          "404": {
+            "description": "No se encontró la afiliación"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "affiliations"
+        ],
+        "summary": "Actualiza una afiliación",
+        "operationId": "updateAffiliation",
+        "parameters": [
+          {
+            "name": "affiliationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AffiliationCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Afiliación actualizada"
+          },
+          "404": {
+            "description": "No se encontró la afiliación"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "affiliations"
+        ],
+        "summary": "Elimina una afiliación",
+        "operationId": "deleteAffiliation",
+        "parameters": [
+          {
+            "name": "affiliationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Afiliación eliminada"
+          },
+          "404": {
+            "description": "No se encontró la afiliación"
+          }
+        }
+      }
+    },
+    "/professionals": {
+      "get": {
+        "tags": [
+          "professionals"
+        ],
+        "summary": "Obtiene la lista de profesionales",
+        "operationId": "getProfessionals",
+        "responses": {
+          "200": {
+            "description": "Lista de profesionales"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "professionals"
+        ],
+        "summary": "Crea un nuevo profesional",
+        "operationId": "createProfessional",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProfessionalCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Profesional creado"
+          }
+        }
+      }
+    },
+    "/professionals/{professionalId}": {
+      "get": {
+        "tags": [
+          "professionals"
+        ],
+        "summary": "Obtiene un profesional por ID",
+        "operationId": "getProfessionalById",
+        "parameters": [
+          {
+            "name": "professionalId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Profesional encontrado"
+          },
+          "404": {
+            "description": "No se encontró el profesional"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "professionals"
+        ],
+        "summary": "Actualiza un profesional",
+        "operationId": "updateProfessional",
+        "parameters": [
+          {
+            "name": "professionalId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProfessionalCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Profesional actualizado"
+          },
+          "404": {
+            "description": "No se encontró el profesional"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "professionals"
+        ],
+        "summary": "Elimina un profesional",
+        "operationId": "deleteProfessional",
+        "parameters": [
+          {
+            "name": "professionalId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Profesional eliminado"
+          },
+          "404": {
+            "description": "No se encontró el profesional"
+          }
+        }
+      }
+    },
+    "/professionals/by-specialty": {
+      "get": {
+        "tags": [
+          "professionals"
+        ],
+        "summary": "Obtiene profesionales filtrados por especialidad",
+        "operationId": "getProfessionalsBySpecialty",
+        "parameters": [
+          {
+            "name": "specialty",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de profesionales con esa especialidad"
+          }
+        }
+      }
+    },
+    "/appointments": {
+      "get": {
+        "tags": [
+          "appointments"
+        ],
+        "summary": "Obtiene todas las citas",
+        "operationId": "getAppointments",
+        "responses": {
+          "200": {
+            "description": "Lista de citas"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "appointments"
+        ],
+        "summary": "Crea una nueva cita",
+        "operationId": "createAppointment",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AppointmentCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Cita creada"
+          }
+        }
+      }
+    },
+    "/appointments/{appointmentId}": {
+      "get": {
+        "tags": [
+          "appointments"
+        ],
+        "summary": "Obtiene una cita por ID",
+        "operationId": "getAppointmentById",
+        "parameters": [
+          {
+            "name": "appointmentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Cita encontrada"
+          },
+          "404": {
+            "description": "No se encontró la cita"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "appointments"
+        ],
+        "summary": "Actualiza una cita",
+        "operationId": "updateAppointment",
+        "parameters": [
+          {
+            "name": "appointmentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AppointmentCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Cita actualizada"
+          },
+          "404": {
+            "description": "No se encontró la cita"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "appointments"
+        ],
+        "summary": "Elimina una cita",
+        "operationId": "deleteAppointment",
+        "parameters": [
+          {
+            "name": "appointmentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Cita eliminada"
+          },
+          "404": {
+            "description": "No se encontró la cita"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "appointments"
+        ],
+        "summary": "Actualiza parcialmente una cita",
+        "operationId": "patchAppointment",
+        "parameters": [
+          {
+            "name": "appointmentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/appointments_appointmentId_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Cita actualizada parcialmente"
+          },
+          "404": {
+            "description": "No se encontró la cita"
+          }
+        }
+      }
+    },
+    "/appointments/user/{userId}": {
+      "get": {
+        "tags": [
+          "appointments"
+        ],
+        "summary": "Obtiene todas las citas de un usuario",
+        "operationId": "getAppointmentsByUser",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de citas del usuario"
+          },
+          "404": {
+            "description": "Usuario no encontrado (o sin citas)"
+          }
+        }
+      }
+    },
+    "/appointments/professional/{professionalId}": {
+      "get": {
+        "tags": [
+          "appointments"
+        ],
+        "summary": "Obtiene todas las citas de un profesional",
+        "operationId": "getAppointmentsByProfessional",
+        "parameters": [
+          {
+            "name": "professionalId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de citas del profesional"
+          },
+          "404": {
+            "description": "Profesional no encontrado (o sin citas)"
+          }
+        }
+      }
+    },
+    "/medicalExams": {
+      "get": {
+        "tags": [
+          "medicalExams"
+        ],
+        "summary": "Obtiene todos los exámenes médicos",
+        "operationId": "getMedicalExams",
+        "responses": {
+          "200": {
+            "description": "Lista de exámenes médicos"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "medicalExams"
+        ],
+        "summary": "Crea un nuevo examen médico",
+        "operationId": "createMedicalExam",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MedicalExamCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Examen médico creado"
+          }
+        }
+      }
+    },
+    "/medicalExams/{medicalExamId}": {
+      "get": {
+        "tags": [
+          "medicalExams"
+        ],
+        "summary": "Obtiene un examen médico por ID",
+        "operationId": "getMedicalExamById",
+        "parameters": [
+          {
+            "name": "medicalExamId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Examen encontrado"
+          },
+          "404": {
+            "description": "No se encontró el examen"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "medicalExams"
+        ],
+        "summary": "Actualiza un examen médico",
+        "operationId": "updateMedicalExam",
+        "parameters": [
+          {
+            "name": "medicalExamId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MedicalExamCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Examen actualizado"
+          },
+          "404": {
+            "description": "No se encontró el examen"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "medicalExams"
+        ],
+        "summary": "Elimina un examen médico",
+        "operationId": "deleteMedicalExam",
+        "parameters": [
+          {
+            "name": "medicalExamId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Examen eliminado"
+          },
+          "404": {
+            "description": "No se encontró el examen"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "UserCreate": {
+        "required": [
+          "email",
+          "name",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phoneNumber": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "UserUpdate": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phoneNumber": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "UserPatch": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phoneNumber": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "ObraSocialCreate": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "AffiliationCreate": {
+        "required": [
+          "credentialNumber",
+          "obraSocialId",
+          "userId"
+        ],
+        "type": "object",
+        "properties": {
+          "credentialNumber": {
+            "type": "string"
+          },
+          "obraSocialId": {
+            "type": "integer"
+          },
+          "userId": {
+            "type": "integer"
+          }
+        }
+      },
+      "ProfessionalCreate": {
+        "required": [
+          "firstName",
+          "specialty"
+        ],
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string"
+          },
+          "specialty": {
+            "type": "string"
+          }
+        }
+      },
+      "AppointmentCreate": {
+        "required": [
+          "dateTime",
+          "professionalId",
+          "userId"
+        ],
+        "type": "object",
+        "properties": {
+          "dateTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "userId": {
+            "type": "integer"
+          },
+          "professionalId": {
+            "type": "integer"
+          },
+          "status": {
+            "type": "string"
+          }
+        }
+      },
+      "MedicalExamCreate": {
+        "required": [
+          "examName"
+        ],
+        "type": "object",
+        "properties": {
+          "examName": {
+            "type": "string"
+          },
+          "diagnosticId": {
+            "type": "integer"
+          },
+          "appointmentId": {
+            "type": "integer"
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "users_login_body": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "appointments_appointmentId_body": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "dateTime": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
