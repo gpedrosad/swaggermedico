@@ -309,6 +309,20 @@
         }
       }
     },
+        "/professional/specialty/{name}" : {
+          "get" : {
+            "summary" : "Listar profesionales por especialidad",
+            "responses" : {
+              "200" : {
+                "description" : "Profesional encontrado"
+              },
+              "404" : {
+                "description" : "Not found"
+              }
+            }
+          }
+        }
+    },
     "/healthInsuranceCard": {
       "get": {
         "summary": "Listar todas las credenciales de seguro",
@@ -557,8 +571,12 @@
               "schema": { "type": "object" },
               "example": {
                 "professionalId": 3,
-                "specialtyId": 2,
-                "dateTime": "2025-05-01T14:00:00"
+                "userId": 2,
+                "date": "2025-05-01",
+                "startTime": "14:00:00",
+                "finishTime": "15:00:00",
+                "notes": "Consulta general",
+                "statusId": 1
               }
             }
           }
@@ -605,7 +623,9 @@
             "application/json": {
               "schema": { "type": "object" },
               "example": {
-                "dateTime": "2025-05-01T15:30:00",
+                "date": "2025-05-01",
+                "startTime":"15:00:00",
+                "finishTime":"15:30:00",
                 "statusId": 1
               }
             }
@@ -681,23 +701,40 @@
       }
     },
     "/appointment/search": {
-      "post": {
+      "get": {
         "summary": "Buscar turnos por filtros",
         "operationId": "searchAppointments",
         "tags": ["Appointment"],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": { "type": "object" },
-              "example": {
-                "date": "2025-05-01",
-                "professionalName": "Juan Pérez",
-                "specialtyName": "Cardiología"
-              }
-            }
+        "parameters":[
+          {
+            "name": "date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Fecha del turno"
+          },
+          {
+            "name": "professionalName",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Nombre del profesional"
+          },
+          {
+            "name": "specialtyName",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Nombre de la especialidad"
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": "Resultados de la búsqueda"
@@ -706,7 +743,7 @@
       }
     },
     "/appointment/{id}/schedule": {
-      "post": {
+      "put": {
         "summary": "Agendar un turno específico",
         "operationId": "scheduleAppointment",
         "tags": ["Appointment"],
@@ -725,7 +762,7 @@
       }
     },
     "/appointment/{id}/cancel": {
-      "post": {
+      "put": {
         "summary": "Cancelar un turno específico",
         "operationId": "cancelAppointment",
         "tags": ["Appointment"],
