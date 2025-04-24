@@ -104,10 +104,10 @@
         ],
         "responses": {
           "200": {
-            "description": "Usuario encontrado"
+            "description": "Usuario con el ID {userId} encontrado"
           },
           "404": {
-            "description": "Usuario no encontrado"
+            "description": "Usuario con el ID {userId} no encontrado"
           }
         }
       },
@@ -137,10 +137,10 @@
         },
         "responses": {
           "200": {
-            "description": "Usuario actualizado"
+            "description": "Usuario con el ID {userId} a sido actualizado"
           },
           "404": {
-            "description": "Usuario no encontrado"
+            "description": "Usuario con el ID {userId} no encontrado"
           }
         }
       },
@@ -158,10 +158,10 @@
         ],
         "responses": {
           "204": {
-            "description": "Usuario eliminado"
+            "description": "Usuario con el ID {userId} a sido eliminado"
           },
           "404": {
-            "description": "Usuario no encontrado"
+            "description": "Usuario con el ID {userId}  no encontrado"
           }
         }
       }
@@ -246,10 +246,10 @@
         ],
         "responses": {
           "200": {
-            "description": "Profesional encontrado"
+            "description": "Profesional con el ID {id} encontrado"
           },
           "404": {
-            "description": "No se encontró el profesional"
+            "description": "No se encontró el profesional con el ID {id}"
           }
         }
       },
@@ -280,10 +280,10 @@
         },
         "responses": {
           "200": {
-            "description": "Profesional actualizado"
+            "description": "Profesional con el ID {id} actualizado"
           },
           "404": {
-            "description": "No se encontró el profesional"
+            "description": "No se encontró el profesional con el ID {id}"
           }
         }
       },
@@ -301,10 +301,10 @@
         ],
         "responses": {
           "204": {
-            "description": "Profesional eliminado"
+            "description": "Profesional con el ID {id} eliminado"
           },
           "404": {
-            "description": "No se encontró el profesional"
+            "description": "No se encontró el profesional con el ID {id}"
           }
         }
       }
@@ -363,10 +363,10 @@
         ],
         "responses": {
           "200": {
-            "description": "Credencial encontrada"
+            "description": "Credencial con el ID {id} encontrada"
           },
           "404": {
-            "description": "Credencial no encontrada"
+            "description": "Credencial con el ID {id} no encontrada"
           }
         }
       },
@@ -396,10 +396,10 @@
         },
         "responses": {
           "200": {
-            "description": "Credencial actualizada correctamente"
+            "description": "Credencial con el ID {id} actualizada correctamente"
           },
           "404": {
-            "description": "Credencial no encontrada"
+            "description": "Credencial con el ID {id} no encontrada"
           }
         }
       },
@@ -417,10 +417,10 @@
         ],
         "responses": {
           "204": {
-            "description": "Credencial eliminada correctamente"
+            "description": "Credencial con el ID {id} eliminada correctamente"
           },
           "404": {
-            "description": "Credencial no encontrada"
+            "description": "Credencial con el ID {id} no encontrada"
           }
         }
       }
@@ -476,10 +476,10 @@
         ],
         "responses": {
           "200": {
-            "description": "Prestador encontrado"
+            "description": "Prestador con el ID {id} encontrado"
           },
           "404": {
-            "description": "Prestador no encontrado"
+            "description": "Prestador con el ID {id} no encontrado"
           }
         }
       },
@@ -508,10 +508,10 @@
         },
         "responses": {
           "200": {
-            "description": "Prestador actualizado correctamente"
+            "description": "Prestador con el ID {id} actualizado correctamente"
           },
           "404": {
-            "description": "Prestador no encontrado"
+            "description": "Prestador con el ID {id} no encontrado"
           }
         }
       },
@@ -529,10 +529,10 @@
         ],
         "responses": {
           "204": {
-            "description": "Prestador eliminado correctamente"
+            "description": "Prestador con el ID {id} eliminado correctamente"
           },
           "404": {
-            "description": "Prestador no encontrado"
+            "description": "Prestador con el ID {id} no encontrado"
           }
         }
       }
@@ -583,8 +583,8 @@
           }
         ],
         "responses": {
-          "200": { "description": "Turno encontrado" },
-          "404": { "description": "Turno no encontrado" }
+          "200": { "description": "Turno con el ID {id} encontrado" },
+          "404": { "description": "Turno con el ID {id} no encontrado" }
         }
       },
       "put": {
@@ -612,8 +612,8 @@
           }
         },
         "responses": {
-          "200": { "description": "Turno actualizado correctamente" },
-          "404": { "description": "Turno no encontrado" }
+          "200": { "description": "Turno con el ID {id} actualizado correctamente" },
+          "404": { "description": "Turno con el ID {id} no encontrado" }
         }
       },
       "delete": {
@@ -629,8 +629,8 @@
           }
         ],
         "responses": {
-          "204": { "description": "Turno eliminado correctamente" },
-          "404": { "description": "Turno no encontrado" }
+          "204": { "description": "Turno con el ID {id} eliminado correctamente" },
+          "404": { "description": "Turno con el ID {id} no encontrado" }
         }
       }
     },
@@ -658,7 +658,7 @@
           }
         ],
         "responses": {
-          "200": { "description": "Turnos filtrados por especialidad" }
+          "200": { "description": "Turnos filtrados por la especialidad {specialtyId}" }
         }
       }
     },
@@ -676,7 +676,7 @@
           }
         ],
         "responses": {
-          "200": { "description": "Turnos filtrados por profesional" }
+          "200": { "description": "Turnos filtrados por profesional con el ID {professionalId}" }
         }
       }
     },
@@ -823,10 +823,10 @@
         ],
         "responses": {
           "200": {
-            "description": "Especialidad encontrada"
+            "description": "Especialidad con el ID {id} encontrada"
           },
           "404": {
-            "description": "Especialidad no encontrada"
+            "description": "Especialidad con el ID {id} no encontrada"
           }
         }
       },
@@ -855,10 +855,10 @@
         },
         "responses": {
           "200": {
-            "description": "Especialidad actualizada correctamente"
+            "description": "Especialidad con el ID {id} actualizada correctamente"
           },
           "404": {
-            "description": "Especialidad no encontrada"
+            "description": "Especialidad con el ID {id} no encontrada"
           }
         }
       },
@@ -876,10 +876,10 @@
         ],
         "responses": {
           "204": {
-            "description": "Especialidad eliminada correctamente"
+            "description": "Especialidad con el ID {id} eliminada correctamente"
           },
           "404": {
-            "description": "Especialidad no encontrada"
+            "description": "Especialidad con el ID {id} no encontrada"
           }
         }
       }
@@ -935,10 +935,10 @@
         ],
         "responses": {
           "200": {
-            "description": "Estado encontrado"
+            "description": "Estado con el ID {id} encontrado"
           },
           "404": {
-            "description": "Estado no encontrado"
+            "description": "Estado con el ID {id} no encontrado"
           }
         }
       },
@@ -967,10 +967,10 @@
         },
         "responses": {
           "200": {
-            "description": "Estado actualizado correctamente"
+            "description": "Estado con el ID {id} actualizado correctamente"
           },
           "404": {
-            "description": "Estado no encontrado"
+            "description": "Estado con el ID {id} no encontrado"
           }
         }
       },
@@ -988,10 +988,10 @@
         ],
         "responses": {
           "204": {
-            "description": "Estado eliminado correctamente"
+            "description": "Estado con el ID {id} eliminado correctamente"
           },
           "404": {
-            "description": "Estado no encontrado"
+            "description": "Estado con el ID {id} no encontrado"
           }
         }
       }
@@ -1048,10 +1048,10 @@
         ],
         "responses": {
           "200": {
-            "description": "Examen médico encontrado"
+            "description": "Examen médico con el ID {id} encontrado"
           },
           "404": {
-            "description": "Examen no encontrado"
+            "description": "Examen medico con el ID {id} no encontrado"
           }
         }
       },
@@ -1081,10 +1081,10 @@
         },
         "responses": {
           "200": {
-            "description": "Examen actualizado correctamente"
+            "description": "Examen con el ID {id}actualizado correctamente"
           },
           "404": {
-            "description": "Examen no encontrado"
+            "description": "Examen con el ID {id} no encontrado"
           }
         }
       },
@@ -1102,10 +1102,10 @@
         ],
         "responses": {
           "204": {
-            "description": "Examen eliminado correctamente"
+            "description": "Examen con el ID {id} eliminado correctamente"
           },
           "404": {
-            "description": "Examen no encontrado"
+            "description": "Examen con el ID {id} no encontrado"
           }
         }
       }
