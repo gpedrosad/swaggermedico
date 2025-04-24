@@ -25,11 +25,11 @@
     },
     {
       "name": "Appointment",
-      "description": "Endpoints relacionados con citas médicas"
+      "description": "Endpoints relacionados con citas medicas"
     },
     {
       "name": "MedicalExam",
-      "description": "Endpoints relacionados con exámenes médicos"
+      "description": "Endpoints relacionados con examenes medicos"
     },
     {
       "name": "HealthcareProvider",
@@ -41,7 +41,7 @@
     },
     {
       "name": "Specialty",
-      "description": "Endpoints relacionados con especialidades médicas"
+      "description": "Endpoints relacionados con especialidades medicas"
     },
     {
       "name": "Status",
@@ -51,7 +51,9 @@
   "paths": {
     "/user": {
       "get": {
-        "tags": ["User"],
+        "tags": [
+          "User"
+        ],
         "summary": "Obtiene la lista de usuarios",
         "operationId": "listUsers",
         "responses": {
@@ -61,14 +63,18 @@
         }
       },
       "post": {
-        "tags": ["User"],
+        "tags": [
+          "User"
+        ],
         "summary": "Crea un nuevo usuario",
         "operationId": "createUser",
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
-              "schema": { "type": "object" },
+              "schema": {
+                "type": "object"
+              },
               "example": {
                 "firstName": "Maria Ana",
                 "lastName": "Paul",
@@ -91,7 +97,9 @@
     },
     "/user/{userId}": {
       "get": {
-        "tags": ["User"],
+        "tags": [
+          "User"
+        ],
         "summary": "Obtiene un usuario por ID",
         "operationId": "getUserById",
         "parameters": [
@@ -99,7 +107,9 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": { "type": "integer" }
+            "schema": {
+              "type": "integer"
+            }
           }
         ],
         "responses": {
@@ -112,7 +122,9 @@
         }
       },
       "put": {
-        "tags": ["User"],
+        "tags": [
+          "User"
+        ],
         "summary": "Actualiza todos los datos de un usuario",
         "operationId": "updateUser",
         "parameters": [
@@ -120,14 +132,18 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": { "type": "integer" }
+            "schema": {
+              "type": "integer"
+            }
           }
         ],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
-              "schema": { "type": "object" },
+              "schema": {
+                "type": "object"
+              },
               "example": {
                 "firstName": "Juan",
                 "phoneNumber": 44556677
@@ -145,7 +161,9 @@
         }
       },
       "delete": {
-        "tags": ["User"],
+        "tags": [
+          "User"
+        ],
         "summary": "Elimina un usuario por ID",
         "operationId": "deleteUser",
         "parameters": [
@@ -153,7 +171,9 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": { "type": "integer" }
+            "schema": {
+              "type": "integer"
+            }
           }
         ],
         "responses": {
@@ -168,14 +188,18 @@
     },
     "/user/login": {
       "post": {
-        "tags": ["User"],
-        "summary": "Inicia sesión de usuario",
+        "tags": [
+          "User"
+        ],
+        "summary": "Inicia sesion de usuario",
         "operationId": "loginUser",
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
-              "schema": { "type": "object" },
+              "schema": {
+                "type": "object"
+              },
               "example": {
                 "email": "juan.perez@example.com",
                 "password": "clave123"
@@ -185,17 +209,19 @@
         },
         "responses": {
           "200": {
-            "description": "Sesión iniciada"
+            "description": "Sesion iniciada"
           },
           "401": {
-            "description": "Credenciales inválidas"
+            "description": "Credenciales invalidas"
           }
         }
       }
     },
     "/professional": {
       "get": {
-        "tags": ["Professional"],
+        "tags": [
+          "Professional"
+        ],
         "summary": "Obtiene la lista de profesionales",
         "operationId": "getProfessionals",
         "responses": {
@@ -205,17 +231,21 @@
         }
       },
       "post": {
-        "tags": ["Professional"],
+        "tags": [
+          "Professional"
+        ],
         "summary": "Crea un nuevo profesional",
         "operationId": "createProfessional",
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
-              "schema": { "type": "object" },
+              "schema": {
+                "type": "object"
+              },
               "example": {
-                "firstName": "Lucía",
-                "lastName": "Díaz",
+                "firstName": "Lucia",
+                "lastName": "Diaz",
                 "specialtyId": 2
               }
             }
@@ -233,7 +263,9 @@
     },
     "/professional/{id}": {
       "get": {
-        "tags": ["Professional"],
+        "tags": [
+          "Professional"
+        ],
         "summary": "Obtiene un profesional por ID",
         "operationId": "getProfessionalById",
         "parameters": [
@@ -241,7 +273,9 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": { "type": "integer" }
+            "schema": {
+              "type": "integer"
+            }
           }
         ],
         "responses": {
@@ -249,12 +283,14 @@
             "description": "Profesional encontrado"
           },
           "404": {
-            "description": "No se encontró el profesional"
+            "description": "No se encontro el profesional"
           }
         }
       },
       "put": {
-        "tags": ["Professional"],
+        "tags": [
+          "Professional"
+        ],
         "summary": "Actualiza un profesional",
         "operationId": "updateProfessional",
         "parameters": [
@@ -262,17 +298,21 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": { "type": "integer" }
+            "schema": {
+              "type": "integer"
+            }
           }
         ],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
-              "schema": { "type": "object" },
+              "schema": {
+                "type": "object"
+              },
               "example": {
                 "firstName": "Pepe",
-                "lastName": "Fernández",
+                "lastName": "Fernandez",
                 "specialtyId": 3
               }
             }
@@ -283,12 +323,14 @@
             "description": "Profesional actualizado"
           },
           "404": {
-            "description": "No se encontró el profesional"
+            "description": "No se encontro el profesional"
           }
         }
       },
       "delete": {
-        "tags": ["Professional"],
+        "tags": [
+          "Professional"
+        ],
         "summary": "Elimina un profesional por ID",
         "operationId": "deleteProfessional",
         "parameters": [
@@ -296,7 +338,9 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": { "type": "integer" }
+            "schema": {
+              "type": "integer"
+            }
           }
         ],
         "responses": {
@@ -304,846 +348,1024 @@
             "description": "Profesional eliminado"
           },
           "404": {
-            "description": "No se encontró el profesional"
+            "description": "No se encontro el profesional"
           }
         }
       }
     },
-        "/professional/specialty/{name}" : {
-          "get" : {
-            "summary" : "Listar profesionales por especialidad",
-            "responses" : {
-              "200" : {
-                "description" : "Profesional encontrado"
-              },
-              "404" : {
-                "description" : "Not found"
-              }
-            }
-          }
-        }
-    },
-    "/healthInsuranceCard": {
+    "/professional/specialty/{name}": {
       "get": {
-        "summary": "Listar todas las credenciales de seguro",
-        "operationId": "listHealthInsuranceCards",
-        "tags": ["HealthInsuranceCard"],
+        "summary": "Listar profesionales por especialidad",
         "responses": {
           "200": {
-            "description": "Credenciales de seguro obtenidas correctamente"
-          }
-        }
-      },
-      "post": {
-        "summary": "Crear una nueva credencial de seguro",
-        "operationId": "createHealthInsuranceCard",
-        "tags": ["HealthInsuranceCard"],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": { "type": "object" },
-              "example": {
-                "credentialNumber": 123456,
-                "expirationDate": "2025-12-31",
-                "userId": 2,
-                "healthcareProviderId": 2
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Credencial creada correctamente"
-          },
-          "400": {
-            "description": "Error en la solicitud"
-          }
-        }
-      }
-    },
-    "/healthInsuranceCard/{id}": {
-      "get": {
-        "summary": "Obtener una credencial de seguro por ID",
-        "operationId": "getHealthInsuranceCardById",
-        "tags": ["HealthInsuranceCard"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": { "type": "integer" }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Credencial encontrada"
+            "description": "Profesional encontrado"
           },
           "404": {
-            "description": "Credencial no encontrada"
-          }
-        }
-      },
-      "put": {
-        "summary": "Actualizar una credencial de seguro",
-        "operationId": "updateHealthInsuranceCard",
-        "tags": ["HealthInsuranceCard"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": { "type": "integer" }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": { "type": "object" },
-              "example": {
-                "credentialNumber": 987654,
-                "expirationDate": "2027-02-15"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Credencial actualizada correctamente"
-          },
-          "404": {
-            "description": "Credencial no encontrada"
-          }
-        }
-      },
-      "delete": {
-        "summary": "Eliminar una credencial de seguro",
-        "operationId": "deleteHealthInsuranceCard",
-        "tags": ["HealthInsuranceCard"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": { "type": "integer" }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Credencial eliminada correctamente"
-          },
-          "404": {
-            "description": "Credencial no encontrada"
+            "description": "Not found"
           }
         }
       }
-    },
-    "/healthcareProvider": {
-      "get": {
-        "summary": "Listar todos los prestadores de salud",
-        "operationId": "listHealthcareProviders",
-        "tags": ["HealthcareProvider"],
-        "responses": {
-          "200": {
-            "description": "Prestadores de salud obtenidos correctamente"
-          }
-        }
-      },
-      "post": {
-        "summary": "Crear un nuevo prestador de salud/obra social",
-        "operationId": "createHealthcareProvider",
-        "tags": ["HealthcareProvider"],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": { "type": "object" },
-              "example": {
-                "name": "OSDE"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Prestador creado correctamente"
-          },
-          "400": {
-            "description": "Error en la solicitud"
-          }
+    }
+  },
+  "/healthInsuranceCard": {
+    "get": {
+      "summary": "Listar todas las credenciales de seguro",
+      "operationId": "listHealthInsuranceCards",
+      "tags": [
+        "HealthInsuranceCard"
+      ],
+      "responses": {
+        "200": {
+          "description": "Credenciales de seguro obtenidas correctamente"
         }
       }
     },
-    "/healthcareProvider/{id}": {
-      "get": {
-        "summary": "Obtener un prestador de salud por ID",
-        "operationId": "getHealthcareProviderById",
-        "tags": ["HealthcareProvider"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": { "type": "integer" }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Prestador encontrado"
-          },
-          "404": {
-            "description": "Prestador no encontrado"
-          }
-        }
-      },
-      "put": {
-        "summary": "Actualizar un prestador de salud",
-        "operationId": "updateHealthcareProvider",
-        "tags": ["HealthcareProvider"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": { "type": "integer" }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": { "type": "object" },
-              "example": {
-                "name": "Swiss Medical Group"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Prestador actualizado correctamente"
-          },
-          "404": {
-            "description": "Prestador no encontrado"
-          }
-        }
-      },
-      "delete": {
-        "summary": "Eliminar un prestador de salud",
-        "operationId": "deleteHealthcareProvider",
-        "tags": ["HealthcareProvider"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": { "type": "integer" }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Prestador eliminado correctamente"
-          },
-          "404": {
-            "description": "Prestador no encontrado"
-          }
-        }
-      }
-    },
-    "/appointment": {
-      "get": {
-        "summary": "Listar todos los turnos",
-        "operationId": "listAppointments",
-        "tags": ["Appointment"],
-        "responses": {
-          "200": { "description": "Turnos obtenidos correctamente" }
-        }
-      },
-      "post": {
-        "summary": "Crear un nuevo turno",
-        "operationId": "createAppointment",
-        "tags": ["Appointment"],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": { "type": "object" },
-              "example": {
-                "professionalId": 3,
-                "userId": 2,
-                "date": "2025-05-01",
-                "startTime": "14:00:00",
-                "finishTime": "15:00:00",
-                "notes": "Consulta general",
-                "statusId": 1
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": { "description": "Turno creado correctamente" },
-          "400": { "description": "Error en la solicitud" }
-        }
-      }
-    },
-    "/appointment/{id}": {
-      "get": {
-        "summary": "Obtener un turno por ID",
-        "operationId": "getAppointmentById",
-        "tags": ["Appointment"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": { "type": "integer" }
-          }
-        ],
-        "responses": {
-          "200": { "description": "Turno encontrado" },
-          "404": { "description": "Turno no encontrado" }
-        }
-      },
-      "put": {
-        "summary": "Actualizar un turno",
-        "operationId": "updateAppointment",
-        "tags": ["Appointment"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": { "type": "integer" }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": { "type": "object" },
-              "example": {
-                "date": "2025-05-01",
-                "startTime":"15:00:00",
-                "finishTime":"15:30:00",
-                "statusId": 1
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": { "description": "Turno actualizado correctamente" },
-          "404": { "description": "Turno no encontrado" }
-        }
-      },
-      "delete": {
-        "summary": "Eliminar un turno",
-        "operationId": "deleteAppointment",
-        "tags": ["Appointment"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": { "type": "integer" }
-          }
-        ],
-        "responses": {
-          "204": { "description": "Turno eliminado correctamente" },
-          "404": { "description": "Turno no encontrado" }
-        }
-      }
-    },
-    "/appointment/available": {
-      "get": {
-        "summary": "Obtener turnos disponibles",
-        "operationId": "getAvailableAppointments",
-        "tags": ["Appointment"],
-        "responses": {
-          "200": { "description": "Turnos disponibles obtenidos correctamente" }
-        }
-      }
-    },
-    "/appointment/specialtyId/{specialtyId}": {
-      "get": {
-        "summary": "Obtener turnos por especialidad",
-        "operationId": "getAppointmentsBySpecialty",
-        "tags": ["Appointment"],
-        "parameters": [
-          {
-            "name": "specialtyId",
-            "in": "path",
-            "required": true,
-            "schema": { "type": "integer" }
-          }
-        ],
-        "responses": {
-          "200": { "description": "Turnos filtrados por especialidad" }
-        }
-      }
-    },
-    "/appointment/professionalId/{professionalId}": {
-      "get": {
-        "summary": "Obtener turnos por profesional",
-        "operationId": "getAppointmentsByProfessional",
-        "tags": ["Appointment"],
-        "parameters": [
-          {
-            "name": "professionalId",
-            "in": "path",
-            "required": true,
-            "schema": { "type": "integer" }
-          }
-        ],
-        "responses": {
-          "200": { "description": "Turnos filtrados por profesional" }
-        }
-      }
-    },
-    "/appointment/search": {
-      "get": {
-        "summary": "Buscar turnos por filtros",
-        "operationId": "searchAppointments",
-        "tags": ["Appointment"],
-        "parameters":[
-          {
-            "name": "date",
-            "in": "query",
-            "required": false,
+    "post": {
+      "summary": "Crear una nueva credencial de seguro",
+      "operationId": "createHealthInsuranceCard",
+      "tags": [
+        "HealthInsuranceCard"
+      ],
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
             "schema": {
-              "type": "string",
-              "format": "date"
+              "type": "object"
             },
-            "description": "Fecha del turno"
-          },
-          {
-            "name": "professionalName",
-            "in": "query",
-            "required": false,
+            "example": {
+              "credentialNumber": 123456,
+              "expirationDate": "2025-12-31",
+              "userId": 2,
+              "healthcareProviderId": 2
+            }
+          }
+        }
+      },
+      "responses": {
+        "201": {
+          "description": "Credencial creada correctamente"
+        },
+        "400": {
+          "description": "Error en la solicitud"
+        }
+      }
+    }
+  },
+  "/healthInsuranceCard/{id}": {
+    "get": {
+      "summary": "Obtener una credencial de seguro por ID",
+      "operationId": "getHealthInsuranceCardById",
+      "tags": [
+        "HealthInsuranceCard"
+      ],
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Credencial encontrada"
+        },
+        "404": {
+          "description": "Credencial no encontrada"
+        }
+      }
+    },
+    "put": {
+      "summary": "Actualizar una credencial de seguro",
+      "operationId": "updateHealthInsuranceCard",
+      "tags": [
+        "HealthInsuranceCard"
+      ],
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
             "schema": {
-              "type": "string"
+              "type": "object"
             },
-            "description": "Nombre del profesional"
-          },
-          {
-            "name": "specialtyName",
-            "in": "query",
-            "required": false,
+            "example": {
+              "credentialNumber": 987654,
+              "expirationDate": "2027-02-15"
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "Credencial actualizada correctamente"
+        },
+        "404": {
+          "description": "Credencial no encontrada"
+        }
+      }
+    },
+    "delete": {
+      "summary": "Eliminar una credencial de seguro",
+      "operationId": "deleteHealthInsuranceCard",
+      "tags": [
+        "HealthInsuranceCard"
+      ],
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "responses": {
+        "204": {
+          "description": "Credencial eliminada correctamente"
+        },
+        "404": {
+          "description": "Credencial no encontrada"
+        }
+      }
+    }
+  },
+  "/healthcareProvider": {
+    "get": {
+      "summary": "Listar todos los prestadores de salud",
+      "operationId": "listHealthcareProviders",
+      "tags": [
+        "HealthcareProvider"
+      ],
+      "responses": {
+        "200": {
+          "description": "Prestadores de salud obtenidos correctamente"
+        }
+      }
+    },
+    "post": {
+      "summary": "Crear un nuevo prestador de salud/obra social",
+      "operationId": "createHealthcareProvider",
+      "tags": [
+        "HealthcareProvider"
+      ],
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
             "schema": {
-              "type": "string"
+              "type": "object"
             },
-            "description": "Nombre de la especialidad"
+            "example": {
+              "name": "OSDE"
+            }
           }
-        ],
-        "responses": {
-          "200": {
-            "description": "Resultados de la búsqueda"
+        }
+      },
+      "responses": {
+        "201": {
+          "description": "Prestador creado correctamente"
+        },
+        "400": {
+          "description": "Error en la solicitud"
+        }
+      }
+    }
+  },
+  "/healthcareProvider/{id}": {
+    "get": {
+      "summary": "Obtener un prestador de salud por ID",
+      "operationId": "getHealthcareProviderById",
+      "tags": [
+        "HealthcareProvider"
+      ],
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
           }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Prestador encontrado"
+        },
+        "404": {
+          "description": "Prestador no encontrado"
         }
       }
     },
-    "/appointment/{id}/schedule": {
-      "put": {
-        "summary": "Agendar un turno específico",
-        "operationId": "scheduleAppointment",
-        "tags": ["Appointment"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": { "type": "integer" }
+    "put": {
+      "summary": "Actualizar un prestador de salud",
+      "operationId": "updateHealthcareProvider",
+      "tags": [
+        "HealthcareProvider"
+      ],
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
           }
-        ],
-        "responses": {
-          "200": { "description": "Turno agendado correctamente" },
-          "404": { "description": "Turno no encontrado" }
         }
-      }
-    },
-    "/appointment/{id}/cancel": {
-      "put": {
-        "summary": "Cancelar un turno específico",
-        "operationId": "cancelAppointment",
-        "tags": ["Appointment"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": { "type": "integer" }
-          }
-        ],
-        "responses": {
-          "200": { "description": "Turno cancelado correctamente" },
-          "404": { "description": "Turno no encontrado" }
-        }
-      }
-    },
-    "/appointment/my-appointments": {
-      "get": {
-        "summary": "Obtener los turnos del usuario (pasados o próximos)",
-        "operationId": "getUserAppointmentsByTime",
-        "tags": ["Appointment"],
-        "parameters": [
-          {
-            "name": "userId",
-            "in": "query",
-            "required": true,
-            "schema": { "type": "integer" }
-          },
-          {
-            "name": "time",
-            "in": "query",
-            "required": true,
+      ],
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
             "schema": {
-              "type": "string",
-              "enum": ["upcoming", "past"]
+              "type": "object"
+            },
+            "example": {
+              "name": "Swiss Medical Group"
             }
           }
-        ],
-        "responses": {
-          "200": {
-            "description": "Turnos del usuario filtrados por tiempo"
-          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "Prestador actualizado correctamente"
+        },
+        "404": {
+          "description": "Prestador no encontrado"
         }
       }
     },
-    "/specialty": {
-      "get": {
-        "summary": "Listar todas las especialidades médicas",
-        "operationId": "listSpecialties",
-        "tags": ["Specialty"],
-        "responses": {
-          "200": {
-            "description": "Especialidades obtenidas correctamente"
+    "delete": {
+      "summary": "Eliminar un prestador de salud",
+      "operationId": "deleteHealthcareProvider",
+      "tags": [
+        "HealthcareProvider"
+      ],
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
           }
         }
-      },
-      "post": {
-        "summary": "Crear una nueva especialidad médica",
-        "operationId": "createSpecialty",
-        "tags": ["Specialty"],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": { "type": "object" },
-              "example": {
-                "name": "Dermatología"
-              }
-            }
-          }
+      ],
+      "responses": {
+        "204": {
+          "description": "Prestador eliminado correctamente"
         },
-        "responses": {
-          "201": {
-            "description": "Especialidad creada correctamente"
-          },
-          "400": {
-            "description": "Error en la solicitud"
-          }
+        "404": {
+          "description": "Prestador no encontrado"
+        }
+      }
+    }
+  },
+  "/appointment": {
+    "get": {
+      "summary": "Listar todos los turnos",
+      "operationId": "listAppointments",
+      "tags": [
+        "Appointment"
+      ],
+      "responses": {
+        "200": {
+          "description": "Turnos obtenidos correctamente"
         }
       }
     },
-    "/specialty/{id}": {
-      "get": {
-        "summary": "Obtener una especialidad por ID",
-        "operationId": "getSpecialtyById",
-        "tags": ["Specialty"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": { "type": "integer" }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Especialidad encontrada"
-          },
-          "404": {
-            "description": "Especialidad no encontrada"
-          }
-        }
-      },
-      "put": {
-        "summary": "Actualizar una especialidad médica",
-        "operationId": "updateSpecialty",
-        "tags": ["Specialty"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": { "type": "integer" }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": { "type": "object" },
-              "example": {
-                "name": "Pediatría"
-              }
+    "post": {
+      "summary": "Crear un nuevo turno",
+      "operationId": "createAppointment",
+      "tags": [
+        "Appointment"
+      ],
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object"
+            },
+            "example": {
+              "professionalId": 3,
+              "userId": 2,
+              "date": "2025-05-01",
+              "startTime": "14:00:00",
+              "finishTime": "15:00:00",
+              "notes": "Consulta general",
+              "statusId": 1
             }
           }
-        },
-        "responses": {
-          "200": {
-            "description": "Especialidad actualizada correctamente"
-          },
-          "404": {
-            "description": "Especialidad no encontrada"
-          }
         }
       },
-      "delete": {
-        "summary": "Eliminar una especialidad médica",
-        "operationId": "deleteSpecialty",
-        "tags": ["Specialty"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": { "type": "integer" }
+      "responses": {
+        "201": {
+          "description": "Turno creado correctamente"
+        },
+        "400": {
+          "description": "Error en la solicitud"
+        }
+      }
+    }
+  },
+  "/appointment/{id}": {
+    "get": {
+      "summary": "Obtener un turno por ID",
+      "operationId": "getAppointmentById",
+      "tags": [
+        "Appointment"
+      ],
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
           }
-        ],
-        "responses": {
-          "204": {
-            "description": "Especialidad eliminada correctamente"
-          },
-          "404": {
-            "description": "Especialidad no encontrada"
-          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Turno encontrado"
+        },
+        "404": {
+          "description": "Turno no encontrado"
         }
       }
     },
-    "/status": {
-      "get": {
-        "summary": "Listar todos los estados de turno",
-        "operationId": "listStatuses",
-        "tags": ["Status"],
-        "responses": {
-          "200": {
-            "description": "Estados obtenidos correctamente"
+    "put": {
+      "summary": "Actualizar un turno",
+      "operationId": "updateAppointment",
+      "tags": [
+        "Appointment"
+      ],
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object"
+            },
+            "example": {
+              "date": "2025-05-01",
+              "startTime": "15:00:00",
+              "finishTime": "15:30:00",
+              "statusId": 1
+            }
           }
         }
       },
-      "post": {
-        "summary": "Crear un nuevo estado",
-        "operationId": "createStatus",
-        "tags": ["Status"],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": { "type": "object" },
-              "example": {
-                "name": "Agendado"
-              }
-            }
-          }
+      "responses": {
+        "200": {
+          "description": "Turno actualizado correctamente"
         },
-        "responses": {
-          "201": {
-            "description": "Estado creado correctamente"
-          },
-          "400": {
-            "description": "Error en la solicitud"
-          }
+        "404": {
+          "description": "Turno no encontrado"
         }
       }
     },
-    "/status/{id}": {
-      "get": {
-        "summary": "Obtener un estado por ID",
-        "operationId": "getStatusById",
-        "tags": ["Status"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": { "type": "integer" }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Estado encontrado"
-          },
-          "404": {
-            "description": "Estado no encontrado"
+    "delete": {
+      "summary": "Eliminar un turno",
+      "operationId": "deleteAppointment",
+      "tags": [
+        "Appointment"
+      ],
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
           }
         }
-      },
-      "put": {
-        "summary": "Actualizar un estado",
-        "operationId": "updateStatus",
-        "tags": ["Status"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": { "type": "integer" }
-          }
-        ],
-        "requestBody": {
+      ],
+      "responses": {
+        "204": {
+          "description": "Turno eliminado correctamente"
+        },
+        "404": {
+          "description": "Turno no encontrado"
+        }
+      }
+    }
+  },
+  "/appointment/available": {
+    "get": {
+      "summary": "Obtener turnos disponibles",
+      "operationId": "getAvailableAppointments",
+      "tags": [
+        "Appointment"
+      ],
+      "responses": {
+        "200": {
+          "description": "Turnos disponibles obtenidos correctamente"
+        }
+      }
+    }
+  },
+  "/appointment/specialtyId/{specialtyId}": {
+    "get": {
+      "summary": "Obtener turnos por especialidad",
+      "operationId": "getAppointmentsBySpecialty",
+      "tags": [
+        "Appointment"
+      ],
+      "parameters": [
+        {
+          "name": "specialtyId",
+          "in": "path",
           "required": true,
-          "content": {
-            "application/json": {
-              "schema": { "type": "object" },
-              "example": {
-                "name": "Cancelado"
-              }
-            }
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Turnos filtrados por especialidad"
+        }
+      }
+    }
+  },
+  "/appointment/professionalId/{professionalId}": {
+    "get": {
+      "summary": "Obtener turnos por profesional",
+      "operationId": "getAppointmentsByProfessional",
+      "tags": [
+        "Appointment"
+      ],
+      "parameters": [
+        {
+          "name": "professionalId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Turnos filtrados por profesional"
+        }
+      }
+    }
+  },
+  "/appointment/search": {
+    "get": {
+      "summary": "Buscar turnos por filtros",
+      "operationId": "searchAppointments",
+      "tags": [
+        "Appointment"
+      ],
+      "parameters": [
+        {
+          "name": "date",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "format": "date"
+          },
+          "description": "Fecha del turno"
+        },
+        {
+          "name": "professionalName",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          },
+          "description": "Nombre del profesional"
+        },
+        {
+          "name": "specialtyName",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          },
+          "description": "Nombre de la especialidad"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Resultados de la b\u00fasqueda"
+        }
+      }
+    }
+  },
+  "/appointment/{id}/schedule": {
+    "put": {
+      "summary": "Agendar un turno especifico",
+      "operationId": "scheduleAppointment",
+      "tags": [
+        "Appointment"
+      ],
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Turno agendado correctamente"
+        },
+        "404": {
+          "description": "Turno no encontrado"
+        }
+      }
+    }
+  },
+  "/appointment/{id}/cancel": {
+    "put": {
+      "summary": "Cancelar un turno especifico",
+      "operationId": "cancelAppointment",
+      "tags": [
+        "Appointment"
+      ],
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Turno cancelado correctamente"
+        },
+        "404": {
+          "description": "Turno no encontrado"
+        }
+      }
+    }
+  },
+  "/appointment/my-appointments": {
+    "get": {
+      "summary": "Obtener los turnos del usuario (pasados o pr\u00f3ximos)",
+      "operationId": "getUserAppointmentsByTime",
+      "tags": [
+        "Appointment"
+      ],
+      "parameters": [
+        {
+          "name": "userId",
+          "in": "query",
+          "required": true,
+          "schema": {
+            "type": "integer"
           }
         },
-        "responses": {
-          "200": {
-            "description": "Estado actualizado correctamente"
-          },
-          "404": {
-            "description": "Estado no encontrado"
+        {
+          "name": "time",
+          "in": "query",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "enum": [
+              "upcoming",
+              "past"
+            ]
           }
         }
-      },
-      "delete": {
-        "summary": "Eliminar un estado",
-        "operationId": "deleteStatus",
-        "tags": ["Status"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": { "type": "integer" }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Estado eliminado correctamente"
-          },
-          "404": {
-            "description": "Estado no encontrado"
-          }
+      ],
+      "responses": {
+        "200": {
+          "description": "Turnos del usuario filtrados por tiempo"
+        }
+      }
+    }
+  },
+  "/specialty": {
+    "get": {
+      "summary": "Listar todas las especialidades medicas",
+      "operationId": "listSpecialties",
+      "tags": [
+        "Specialty"
+      ],
+      "responses": {
+        "200": {
+          "description": "Especialidades obtenidas correctamente"
         }
       }
     },
-    "/medicalExam": {
-      "get": {
-        "summary": "Listar todos los exámenes médicos",
-        "operationId": "listMedicalExams",
-        "tags": ["MedicalExam"],
-        "responses": {
-          "200": {
-            "description": "Exámenes médicos obtenidos correctamente"
+    "post": {
+      "summary": "Crear una nueva especialidad medica",
+      "operationId": "createSpecialty",
+      "tags": [
+        "Specialty"
+      ],
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object"
+            },
+            "example": {
+              "name": "Dermatologa"
+            }
           }
         }
       },
-      "post": {
-        "summary": "Crear un nuevo examen médico",
-        "operationId": "createMedicalExam",
-        "tags": ["MedicalExam"],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": { "type": "object" },
-              "example": {
-                "name": "Análisis de sangre",
-                "description": "Examen general para revisar niveles de glucosa, colesterol, etc."
-              }
-            }
-          }
+      "responses": {
+        "201": {
+          "description": "Especialidad creada correctamente"
         },
-        "responses": {
-          "201": {
-            "description": "Examen médico creado correctamente"
-          },
-          "400": {
-            "description": "Error en la solicitud"
+        "400": {
+          "description": "Error en la solicitud"
+        }
+      }
+    }
+  },
+  "/specialty/{id}": {
+    "get": {
+      "summary": "Obtener una especialidad por ID",
+      "operationId": "getSpecialtyById",
+      "tags": [
+        "Specialty"
+      ],
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
           }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Especialidad encontrada"
+        },
+        "404": {
+          "description": "Especialidad no encontrada"
         }
       }
     },
-    "/medicalExam/{id}": {
-      "get": {
-        "summary": "Obtener un examen médico por ID",
-        "operationId": "getMedicalExamById",
-        "tags": ["MedicalExam"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": { "type": "integer" }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Examen médico encontrado"
-          },
-          "404": {
-            "description": "Examen no encontrado"
+    "put": {
+      "summary": "Actualizar una especialidad medica",
+      "operationId": "updateSpecialty",
+      "tags": [
+        "Specialty"
+      ],
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
           }
         }
-      },
-      "put": {
-        "summary": "Actualizar un examen médico",
-        "operationId": "updateMedicalExam",
-        "tags": ["MedicalExam"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": { "type": "integer" }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": { "type": "object" },
-              "example": {
-                "name": "Radiografía",
-                "description": "Examen de imagen para diagnóstico"
-              }
+      ],
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object"
+            },
+            "example": {
+              "name": "Pediatria"
             }
           }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "Especialidad actualizada correctamente"
         },
-        "responses": {
-          "200": {
-            "description": "Examen actualizado correctamente"
-          },
-          "404": {
-            "description": "Examen no encontrado"
+        "404": {
+          "description": "Especialidad no encontrada"
+        }
+      }
+    },
+    "delete": {
+      "summary": "Eliminar una especialidad medica",
+      "operationId": "deleteSpecialty",
+      "tags": [
+        "Specialty"
+      ],
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "responses": {
+        "204": {
+          "description": "Especialidad eliminada correctamente"
+        },
+        "404": {
+          "description": "Especialidad no encontrada"
+        }
+      }
+    }
+  },
+  "/status": {
+    "get": {
+      "summary": "Listar todos los estados de turno",
+      "operationId": "listStatuses",
+      "tags": [
+        "Status"
+      ],
+      "responses": {
+        "200": {
+          "description": "Estados obtenidos correctamente"
+        }
+      }
+    },
+    "post": {
+      "summary": "Crear un nuevo estado",
+      "operationId": "createStatus",
+      "tags": [
+        "Status"
+      ],
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object"
+            },
+            "example": {
+              "name": "Agendado"
+            }
           }
         }
       },
-      "delete": {
-        "summary": "Eliminar un examen médico",
-        "operationId": "deleteMedicalExam",
-        "tags": ["MedicalExam"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": { "type": "integer" }
+      "responses": {
+        "201": {
+          "description": "Estado creado correctamente"
+        },
+        "400": {
+          "description": "Error en la solicitud"
+        }
+      }
+    }
+  },
+  "/status/{id}": {
+    "get": {
+      "summary": "Obtener un estado por ID",
+      "operationId": "getStatusById",
+      "tags": [
+        "Status"
+      ],
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
           }
-        ],
-        "responses": {
-          "204": {
-            "description": "Examen eliminado correctamente"
-          },
-          "404": {
-            "description": "Examen no encontrado"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Estado encontrado"
+        },
+        "404": {
+          "description": "Estado no encontrado"
+        }
+      }
+    },
+    "put": {
+      "summary": "Actualizar un estado",
+      "operationId": "updateStatus",
+      "tags": [
+        "Status"
+      ],
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
           }
+        }
+      ],
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object"
+            },
+            "example": {
+              "name": "Cancelado"
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "Estado actualizado correctamente"
+        },
+        "404": {
+          "description": "Estado no encontrado"
+        }
+      }
+    },
+    "delete": {
+      "summary": "Eliminar un estado",
+      "operationId": "deleteStatus",
+      "tags": [
+        "Status"
+      ],
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "responses": {
+        "204": {
+          "description": "Estado eliminado correctamente"
+        },
+        "404": {
+          "description": "Estado no encontrado"
+        }
+      }
+    }
+  },
+  "/medicalExam": {
+    "get": {
+      "summary": "Listar todos los examenes medicos",
+      "operationId": "listMedicalExams",
+      "tags": [
+        "MedicalExam"
+      ],
+      "responses": {
+        "200": {
+          "description": "Examenes medicos obtenidos correctamente"
+        }
+      }
+    },
+    "post": {
+      "summary": "Crear un nuevo examen medico",
+      "operationId": "createMedicalExam",
+      "tags": [
+        "MedicalExam"
+      ],
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object"
+            },
+            "example": {
+              "name": "Analisis de sangre",
+              "description": "Examen general para revisar niveles de glucosa, colesterol, etc."
+            }
+          }
+        }
+      },
+      "responses": {
+        "201": {
+          "description": "Examen medico creado correctamente"
+        },
+        "400": {
+          "description": "Error en la solicitud"
+        }
+      }
+    }
+  },
+  "/medicalExam/{id}": {
+    "get": {
+      "summary": "Obtener un examen medico por ID",
+      "operationId": "getMedicalExamById",
+      "tags": [
+        "MedicalExam"
+      ],
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Examen medico encontrado"
+        },
+        "404": {
+          "description": "Examen no encontrado"
+        }
+      }
+    },
+    "put": {
+      "summary": "Actualizar un examen medico",
+      "operationId": "updateMedicalExam",
+      "tags": [
+        "MedicalExam"
+      ],
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object"
+            },
+            "example": {
+              "name": "Radiografia",
+              "description": "Examen de imagen para diagnostico"
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "Examen actualizado correctamente"
+        },
+        "404": {
+          "description": "Examen no encontrado"
+        }
+      }
+    },
+    "delete": {
+      "summary": "Eliminar un examen medico",
+      "operationId": "deleteMedicalExam",
+      "tags": [
+        "MedicalExam"
+      ],
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "responses": {
+        "204": {
+          "description": "Examen eliminado correctamente"
+        },
+        "404": {
+          "description": "Examen no encontrado"
         }
       }
     }
